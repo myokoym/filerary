@@ -40,7 +40,7 @@ $ gem install filerarian
 $ filerarian collect FILE...
 ```
 
-### Search for files in the collection
+### Search for files in the collection (very fast!)
 
 ```bash
 $ filerarian search WORD
