@@ -7,6 +7,7 @@ For example, .txt, .pdf, .xls and so on.
 ## Requirements
 
 * [GrnMini](https://github.com/ongaeshi/grn_mini)
+  * [Rroonga](http://ranguba.org/)
 * Ruby/Poppler in [Ruby-GNOME2](http://ruby-gnome2.sourceforge.jp/)
 * [Spreadsheet](https://github.com/zdavatz/spreadsheet)
 
