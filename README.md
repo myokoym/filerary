@@ -34,7 +34,7 @@ Copyright (c) 2014  Masafumi Yokoyama
 
 GPLv3.
 
-See 'license/gpl-3.0.txt' or 'http://www.gnu.org/licenses/gpl-3.0' for details.
+See 'Licenses/gpl-3.0.txt' or 'http://www.gnu.org/licenses/gpl-3.0' for details.
 
 ## Contributing
 
