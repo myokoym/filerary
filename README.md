@@ -16,25 +16,35 @@ For example, .txt, .pdf, .xls and so on.
 
 Add this line to your application's Gemfile:
 
-    gem 'filerarian'
+```ruby
+gem 'filerarian'
+```
 
 And then execute:
 
-    $ bundle
+```bash
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install filerarian
+```bash
+$ gem install filerarian
+```
 
 ## Usage
 
 ### Collect files (takes time)
 
-    $ filerarian collect FILE...
+```bash
+$ filerarian collect FILE...
+```
 
 ### Search for files in the collection
 
-    $ filerarian search WORD
+```bash
+$ filerarian search WORD
+```
 
 ## License
 
