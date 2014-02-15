@@ -1,0 +1,3 @@
+module Filerarian
+  VERSION = "0.0.1"
+end
