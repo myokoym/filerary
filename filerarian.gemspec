@@ -25,6 +25,7 @@ Filerarian will use '#{File.join(File.expand_path("~"), ".filerarian")}' for dat
   spec.add_runtime_dependency("grn_mini")
   spec.add_runtime_dependency("poppler")
   spec.add_runtime_dependency("spreadsheet")
+  spec.add_runtime_dependency("thor")
 
   spec.add_development_dependency("bundler", "~> 1.5")
   spec.add_development_dependency("rake")
