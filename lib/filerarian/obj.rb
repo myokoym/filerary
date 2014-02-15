@@ -21,7 +21,7 @@ module Filerarian
       paths.each do |path|
         path = File.expand_path(path)
 
-        next if File.directory?(path)
+        next unless File.file?(path)
         next if @files[path] && @files[path].updated_at > File.mtime(path)
 
         @files[path] = {
