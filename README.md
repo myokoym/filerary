@@ -10,6 +10,7 @@ For example, .txt, .pdf, .xls and so on.
   * [Rroonga](http://ranguba.org/)
 * Ruby/Poppler in [Ruby-GNOME2](http://ruby-gnome2.sourceforge.jp/)
 * [Spreadsheet](https://github.com/zdavatz/spreadsheet)
+* [Thor](http://whatisthor.com/)
 
 ## Installation
 
@@ -27,7 +28,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Collect files (takes time)
+
+    $ filerarian collect FILE...
+
+### Search for files in the collection
+
+    $ filerarian search WORD
 
 ## License
 
