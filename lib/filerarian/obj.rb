@@ -70,7 +70,7 @@ module Filerarian
 
     def read_pdf(path)
       text = ""
-      document = Poppler::Document.new(file)
+      document = Poppler::Document.new(path)
       document.each do |page|
         text << page.get_text
       end
