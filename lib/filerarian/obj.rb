@@ -22,6 +22,7 @@ module Filerarian
         path = File.expand_path(path)
 
         next unless File.file?(path)
+        next if /\/\.git\// =~ path
         next if @files[path] && @files[path].updated_at > File.mtime(path)
 
         @files[path] = {
