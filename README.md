@@ -46,6 +46,12 @@ $ filerary collect FILE...
 $ filerary search WORD
 ```
 
+### Unregister not existing files in the collection
+
+```bash
+$ filerary cleanup
+```
+
 ## Authors
 
 Copyright (c) 2014  Masafumi Yokoyama (myokoym@gmail.com)

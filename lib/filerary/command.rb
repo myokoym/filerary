@@ -18,5 +18,10 @@ module Filerary
     def search(word)
       puts Filerary::Librarian.new.search(word)
     end
+
+    desc "cleanup", "Unregister not existing files in the collection"
+    def cleanup
+      Filerary::Librarian.new.cleanup
+    end
   end
 end

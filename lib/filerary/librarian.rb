@@ -40,6 +40,13 @@ module Filerary
       result.collect {|record| record._key }
     end
 
+    def cleanup
+      @files.grn.records.each do |record|
+        path = record._key
+        @files.delete(path) unless File.exist?(path)
+      end
+    end
+
     private
     def read_content(path)
       text = nil
