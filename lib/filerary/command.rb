@@ -1,6 +1,6 @@
 require "thor"
 require "filerary/version"
-require "filerary/obj"
+require "filerary/librarian"
 
 module Filerary
   class Command < Thor
