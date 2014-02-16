@@ -3,13 +3,14 @@ require "fileutils"
 
 class FileraryTest < Test::Unit::TestCase
   def setup
-    @test_base_dir = File.join(File.dirname(__FILE__), "tmp")
-    FileUtils.mkdir_p(@test_base_dir)
-    @librarian = Filerary::Librarian.new(@test_base_dir)
+    @test_dir = File.expand_path(File.dirname(__FILE__))
+    @test_tmp_dir = File.join(@test_dir, "tmp")
+    FileUtils.mkdir_p(@test_tmp_dir)
+    @librarian = Filerary::Librarian.new(@test_tmp_dir)
   end
 
   def teardown
-    FileUtils.rm_rf(@test_base_dir)
+    FileUtils.rm_rf(@test_tmp_dir)
   end
 
   def test_default_db_dir
@@ -20,11 +21,11 @@ class FileraryTest < Test::Unit::TestCase
   end
 
   class CollectTest < self
-    def test_string
+    def test_argument_is_string
       assert_equal([__FILE__], @librarian.collect(__FILE__))
     end
 
-    def test_array
+    def test_argument_is_array
       assert_equal([__FILE__], @librarian.collect([__FILE__]))
     end
   end
@@ -47,7 +48,7 @@ class FileraryTest < Test::Unit::TestCase
   class CleanupTest < self
     def setup
       super
-      @temp_file = File.join(@test_base_dir, "cleanup.txt")
+      @temp_file = File.join(@test_tmp_dir, "cleanup.txt")
       FileUtils.cp(__FILE__, @temp_file)
       @librarian.collect(@temp_file)
     end
