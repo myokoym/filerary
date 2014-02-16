@@ -63,8 +63,12 @@ module Filerary
       extractor = ChupaText::Extractor.new
       extractor.apply_configuration(ChupaText::Configuration.default)
 
+      begin
       extractor.extract(URI.encode(path)) do |text_data|
         text = text_data.body
+      end
+      rescue URI::InvalidURIError
+        return path
       end
 
       return path unless text
