@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{A fulltext search tool for local files}
   spec.description   = %q{Filerary is a fulltext search tool for local files that contains text. For example, .txt, .pdf, .xls and so on.}
   spec.homepage      = "https://github.com/myokoym/filerary"
-  spec.license       = "GPLv3"
+  spec.license       = "LGPLv2.1 or later"
 
   spec.post_install_message = <<-END_OF_MESSAGE
 Filerary will use '#{File.join(File.expand_path("~"), ".filerary")}' for data storage. Thanks!

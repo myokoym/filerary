@@ -58,12 +58,13 @@ $ filerary cleanup
 
 ## Authors
 
-Copyright (c) 2014  Masafumi Yokoyama (myokoym@gmail.com)
+* Masafumi Yokoyama `<myokoym@gmail.com>`
 
 ## License
 
-This software is distributed under the GPLv3.
-Please see the [LICENSE] (https://github.com/myokoym/filerary/blob/master/LICENSE.txt) file.
+LGPL 2.1 or later.
+
+See [LICENSE](https://github.com/myokoym/filerary/blob/master/LICENSE.txt) or 'http://www.gnu.org/licenses/lgpl-2.1'.
 
 ## Contributing
 
