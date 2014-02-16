@@ -39,4 +39,31 @@ class FileraryTest < Test::Unit::TestCase
       assert_equal([], @librarian.search("AAA" * 5))
     end
   end
+
+  class CleanupTest < self
+    def setup
+      super
+      @temp_file = File.join(@test_base_dir, "cleanup.txt")
+      FileUtils.cp(__FILE__, @temp_file)
+      @librarian.collect(@temp_file)
+    end
+
+    def teardown
+      super
+      FileUtils.rm_f(@temp_file)
+    end
+
+    def test_removed
+      FileUtils.rm(@temp_file)
+      assert_equal([@temp_file], @librarian.search("Librarian"))
+      @librarian.cleanup
+      assert_equal([], @librarian.search("Librarian"))
+    end
+
+    def test_not_removed
+      assert_equal([@temp_file], @librarian.search("Librarian"))
+      @librarian.cleanup
+      assert_equal([@temp_file], @librarian.search("Librarian"))
+    end
+  end
 end
