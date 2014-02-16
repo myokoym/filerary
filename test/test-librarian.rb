@@ -20,8 +20,12 @@ class FileraryTest < Test::Unit::TestCase
   end
 
   class CollectTest < self
-    def test_collect
+    def test_string
       assert_equal([__FILE__], @librarian.collect(__FILE__))
+    end
+
+    def test_array
+      assert_equal([__FILE__], @librarian.collect([__FILE__]))
     end
   end
 
