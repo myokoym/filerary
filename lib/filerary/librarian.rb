@@ -5,6 +5,16 @@ require "chupa-text"
 gem "chupa-text-decomposer-pdf"
 gem "chupa-text-decomposer-libreoffice"
 
+# TODO: I'll send pull request to ChupaText.
+module URI
+  class Generic
+    alias :__path__ :path
+    def path
+      URI.decode(__path__)
+    end
+  end
+end
+
 module Filerary
   class Librarian
     attr_reader :db_dir, :db_path
@@ -64,6 +74,7 @@ module Filerary
       extractor.apply_configuration(ChupaText::Configuration.default)
 
       begin
+        # TODO: I'll send pull request to ChupaText.
         extractor.extract(URI.encode(path)) do |text_data|
           text = text_data.body
         end
