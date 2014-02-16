@@ -22,6 +22,8 @@ Filerary will use '#{File.join(File.expand_path("~"), ".filerary")}' for data st
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.requirements << "LibreOffice"
+
   spec.add_runtime_dependency("grn_mini")
   spec.add_runtime_dependency("chupa-text")
   spec.add_runtime_dependency("chupa-text-decomposer-pdf")
