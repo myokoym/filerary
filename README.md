@@ -46,7 +46,7 @@ $ filerary collect FILE...
 $ filerary search WORD
 ```
 
-### Unregister not existing files in the collection
+### Remove deleted files in the collection
 
 ```bash
 $ filerary cleanup
