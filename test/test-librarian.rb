@@ -23,10 +23,11 @@ class FileraryTest < Test::Unit::TestCase
   end
 
   def test_collect
-    assert_true(@librarian.respond_to?(:collect))
+    assert_equal([__FILE__], @librarian.collect(__FILE__))
   end
 
   def test_search
-    assert_true(@librarian.respond_to?(:search))
+    @librarian.collect(__FILE__)
+    assert_equal([__FILE__], @librarian.search("Librarian"))
   end
 end
