@@ -36,6 +36,11 @@ class FileraryTest < Test::Unit::TestCase
       path = File.join(@test_fixtures_dir, "test-pdf.pdf")
       assert_equal([path], @librarian.collect(path))
     end
+
+    def test_flle_type_is_xls
+      path = File.join(@test_fixtures_dir, "test-excel.xls")
+      assert_equal([path], @librarian.collect(path))
+    end
   end
 
   class SearchTest < self
@@ -53,6 +58,15 @@ class FileraryTest < Test::Unit::TestCase
       path = File.join(@test_fixtures_dir, "test-pdf.pdf")
       @librarian.collect(path)
       assert_equal([path], @librarian.search("秋"))
+      assert_equal([], @librarian.search("冬"))
+    end
+
+    def test_file_type_is_xls
+      path = File.join(@test_fixtures_dir, "test-excel.xls")
+      @librarian.collect(path)
+      assert_equal([path], @librarian.search("Excel"))
+      assert_equal([path], @librarian.search("表計算ソフト"))
+      assert_equal([], @librarian.search("文書作成ソフト"))
     end
   end
 
