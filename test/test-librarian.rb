@@ -4,6 +4,8 @@ require "filerary"
 require "fileutils"
 
 class FileraryTest < Test::Unit::TestCase
+  include FileraryTestUtils
+
   def setup
     @test_dir = File.expand_path(File.dirname(__FILE__))
     @test_fixtures_dir = File.join(@test_dir, "fixtures")
