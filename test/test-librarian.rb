@@ -9,10 +9,7 @@ class FileraryTest < Test::Unit::TestCase
   end
 
   def teardown
-    Dir.glob("#{@test_base_dir}/*.db*") do |path|
-      FileUtils.rm(path)
-    end
-    FileUtils.rmdir(@test_base_dir)
+    FileUtils.rm_rf(@test_base_dir)
   end
 
   def test_default_db_dir
