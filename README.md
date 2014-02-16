@@ -10,7 +10,7 @@ For example, .txt, .pdf, .xls and so on.
   * [Rroonga](http://ranguba.org/)
 * [ranguba/chupa-text](https://github.com/ranguba/chupa-text)
 * [ranguba/chupa-text-decomposer-pdf](https://github.com/ranguba/chupa-text-decomposer-pdf)
-* Ruby/Poppler in [Ruby-GNOME2](http://ruby-gnome2.sourceforge.jp/)
+  * Ruby/Poppler in [Ruby-GNOME2](http://ruby-gnome2.sourceforge.jp/)
 * [ranguba/chupa-text-decomposer-libreoffice](https://github.com/ranguba/chupa-text-decomposer-libreoffice)
   * [LibreOffice](https://www.libreoffice.org/)
 * [Thor](http://whatisthor.com/)
