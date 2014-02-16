@@ -70,8 +70,10 @@ class FileraryTest < Test::Unit::TestCase
     end
 
     def test_file_type_is_xls_of_multibyte
-      # TODO
+      # TODO: I want to detective.
       omit_on_travis_ci
+      path = File.join(@test_fixtures_dir, "test-excel.xls")
+      @librarian.collect(path)
       assert_equal([path], @librarian.search("表計算ソフト"))
       assert_equal([], @librarian.search("文書作成ソフト"))
     end
