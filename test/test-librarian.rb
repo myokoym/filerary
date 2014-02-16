@@ -29,9 +29,17 @@ class FileraryTest < Test::Unit::TestCase
   end
 
   class SearchTest < self
-    def test_search
+    def setup
+      super
       @librarian.collect(__FILE__)
+    end
+
+    def test_found
       assert_equal([__FILE__], @librarian.search("Librarian"))
+    end
+
+    def test_not_found
+      assert_equal([], @librarian.search("AAA" * 5))
     end
   end
 end
