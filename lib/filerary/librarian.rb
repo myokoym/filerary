@@ -3,13 +3,13 @@ require "grn_mini"
 require "poppler"
 require "spreadsheet"
 
-module Filerarian
-  class Obj
+module Filerary
+  class Librarian
     def initialize
-      db_dir = File.join(File.expand_path("~"), ".filerarian", "db")
+      db_dir = File.join(File.expand_path("~"), ".filerary", "db")
       FileUtils.mkdir_p(db_dir)
 
-      db_path = File.join(db_dir, "filerarian.db")
+      db_path = File.join(db_dir, "filerary.db")
       GrnMini.create_or_open(db_path)
 
       @files = GrnMini::Hash.new("Files")

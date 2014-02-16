@@ -1,8 +1,8 @@
 require "thor"
-require "filerarian/version"
-require "filerarian/obj"
+require "filerary/version"
+require "filerary/obj"
 
-module Filerarian
+module Filerary
   class Command < Thor
     desc "version", "Show version number"
     def version
@@ -11,12 +11,12 @@ module Filerarian
 
     desc "collect FILE...", "Collect files (takes time)"
     def collect(*files)
-      Filerarian::Obj.new.collect(files)
+      Filerary::Librarian.new.collect(files)
     end
 
     desc "search WORD", "Search for files in the collection"
     def search(word)
-      puts Filerarian::Obj.new.search(word)
+      puts Filerary::Librarian.new.search(word)
     end
   end
 end

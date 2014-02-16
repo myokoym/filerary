@@ -1,9 +1,9 @@
-require "filerarian"
+require "filerary"
 
-filerarian = Filerarian::Obj.new
+filerary = Filerary::Librarian.new
 
 base_dir = File.join(File.dirname(__FILE__), "..")
-filerarian.collect(Dir.glob("#{base_dir}/*"))
+filerary.collect(Dir.glob("#{base_dir}/*"))
 
-p filerarian.search("require")
-p filerarian.search("Windows")
+p filerary.search("require")
+p filerary.search("Windows")

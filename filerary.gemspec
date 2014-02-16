@@ -1,20 +1,20 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'filerarian/version'
+require 'filerary/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "filerarian"
-  spec.version       = Filerarian::VERSION
+  spec.name          = "filerary"
+  spec.version       = Filerary::VERSION
   spec.authors       = ["Masafumi Yokoyama"]
   spec.email         = ["myokoym@gmail.com"]
   spec.summary       = %q{A fulltext search tool for local files}
-  spec.description   = %q{Filerarian is a fulltext search tool for local files that contains text. For example, .txt, .pdf, .xls and so on.}
-  spec.homepage      = "https://github.com/myokoym/filerarian"
+  spec.description   = %q{Filerary is a fulltext search tool for local files that contains text. For example, .txt, .pdf, .xls and so on.}
+  spec.homepage      = "https://github.com/myokoym/filerary"
   spec.license       = "GPLv3"
 
   spec.post_install_message = <<-END_OF_MESSAGE
-Filerarian will use '#{File.join(File.expand_path("~"), ".filerarian")}' for data storage. Thanks!
+Filerary will use '#{File.join(File.expand_path("~"), ".filerary")}' for data storage. Thanks!
   END_OF_MESSAGE
 
   spec.files         = `git ls-files -z`.split("\x0")

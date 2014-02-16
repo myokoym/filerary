@@ -1,4 +1,4 @@
-# Filerarian
+# Filerary
 
 A fulltext search tool for local files that contains text.
 
@@ -17,7 +17,7 @@ For example, .txt, .pdf, .xls and so on.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'filerarian'
+gem 'filerary'
 ```
 
 And then execute:
@@ -29,7 +29,7 @@ $ bundle
 Or install it yourself as:
 
 ```bash
-$ gem install filerarian
+$ gem install filerary
 ```
 
 ## Usage
@@ -37,13 +37,13 @@ $ gem install filerarian
 ### Collect files (takes time)
 
 ```bash
-$ filerarian collect FILE...
+$ filerary collect FILE...
 ```
 
 ### Search for files in the collection (very fast!)
 
 ```bash
-$ filerarian search WORD
+$ filerary search WORD
 ```
 
 ## Authors
@@ -53,11 +53,11 @@ Copyright (c) 2014  Masafumi Yokoyama (myokoym@gmail.com)
 ## License
 
 This software is distributed under the GPLv3.
-Please see the [LICENSE] (https://github.com/myokoym/filerarian/blob/master/LICENSE.txt) file.
+Please see the [LICENSE] (https://github.com/myokoym/filerary/blob/master/LICENSE.txt) file.
 
 ## Contributing
 
-1. Fork it ( http://github.com/myokoym/filerarian/fork )
+1. Fork it ( http://github.com/myokoym/filerary/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

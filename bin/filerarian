@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "filerarian/command"
+require "filerary/command"
 
-Filerarian::Command.start
+Filerary::Command.start
