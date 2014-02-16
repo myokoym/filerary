@@ -1,7 +1,6 @@
 require "fileutils"
 require "grn_mini"
-require "poppler"
-require "spreadsheet"
+require "chupa-text"
 
 module Filerary
   class Librarian
@@ -56,48 +55,18 @@ module Filerary
     def read_content(path)
       text = nil
 
-      if text?(path)
-        text = File.open(path).read
-      elsif pdf?(path)
-        text = read_pdf(path)
-      elsif xls?(path)
-        text = read_xls(path)
-      else
-        text = path
+      ChupaText::Decomposers.load
+
+      extractor = ChupaText::Extractor.new
+      extractor.apply_configuration(ChupaText::Configuration.default)
+
+      extractor.extract(path) do |text_data|
+        text = text_data.body
       end
 
-      text
-    end
+      # TODO: I want to specify encoding in ChupaText side.
+      text.force_encoding(Encoding.default_external || "UTF-8")
 
-    def text?(path)
-      File.open(path).read.valid_encoding? && /\.tar\z/i !~ path
-    end
-
-    def pdf?(path)
-      /\.pdf\z/i =~ path
-    end
-
-    def xls?(path)
-      /\.xls\z/i =~ path
-    end
-
-    def read_pdf(path)
-      text = ""
-      document = Poppler::Document.new(path)
-      document.each do |page|
-        text << page.get_text
-      end
-      text
-    end
-
-    def read_xls(path)
-      text = ""
-      book = Spreadsheet.open(path)
-      book.worksheets.each do |worksheet|
-        worksheet.rows.each do |row|
-          text << row.join << "\n"
-        end
-      end
       text
     end
   end
