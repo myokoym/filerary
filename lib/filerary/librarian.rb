@@ -5,12 +5,13 @@ require "spreadsheet"
 
 module Filerary
   class Librarian
-    def initialize
-      db_dir = File.join(File.expand_path("~"), ".filerary", "db")
-      FileUtils.mkdir_p(db_dir)
+    attr_reader :db_dir, :db_path
+    def initialize(base_dir=default_base_dir)
+      @db_dir = File.join(base_dir, "db")
+      FileUtils.mkdir_p(@db_dir)
 
-      db_path = File.join(db_dir, "filerary.db")
-      GrnMini.create_or_open(db_path)
+      @db_path = File.join(@db_dir, "filerary.db")
+      GrnMini.create_or_open(@db_path)
 
       @files = GrnMini::Hash.new("Files")
     end
@@ -48,6 +49,10 @@ module Filerary
     end
 
     private
+    def default_base_dir
+      File.join(File.expand_path("~"), ".filerary")
+    end
+
     def read_content(path)
       text = nil
 
