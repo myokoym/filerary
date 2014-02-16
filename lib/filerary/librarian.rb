@@ -1,6 +1,8 @@
 require "fileutils"
 require "grn_mini"
 require "chupa-text"
+gem "chupa-text-decomposer-pdf"
+gem "chupa-text-decomposer-libreoffice"
 
 module Filerary
   class Librarian
@@ -63,6 +65,8 @@ module Filerary
       extractor.extract(path) do |text_data|
         text = text_data.body
       end
+
+      return path unless text
 
       # TODO: I want to specify encoding in ChupaText side.
       text.force_encoding(Encoding.default_external || "UTF-8")
