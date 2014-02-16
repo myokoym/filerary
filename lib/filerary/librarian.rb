@@ -70,9 +70,9 @@ module Filerary
       return path unless text
 
       # TODO: I want to specify encoding in ChupaText side.
-      text.force_encoding(Encoding.default_external || "UTF-8")
-
-      text
+      text.force_encoding("UTF-8")
+      return text if text.valid_encoding?
+      text.force_encoding(Encoding.default_external)
     end
   end
 end
