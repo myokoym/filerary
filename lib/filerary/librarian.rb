@@ -92,7 +92,6 @@ module Filerary
 
     def read_xls(path)
       text = ""
-      Spreadsheet.client_encoding = Encoding.find("locale")
       book = Spreadsheet.open(path)
       book.worksheets.each do |worksheet|
         worksheet.rows.each do |row|
