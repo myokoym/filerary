@@ -46,13 +46,14 @@ $ filerarian collect FILE...
 $ filerarian search WORD
 ```
 
+## Authors
+
+Copyright (c) 2014  Masafumi Yokoyama (myokoym@gmail.com)
+
 ## License
 
-Copyright (c) 2014  Masafumi Yokoyama
-
-GPLv3.
-
-See 'Licenses/gpl-3.0.txt' or 'http://www.gnu.org/licenses/gpl-3.0' for details.
+This software is distributed under the GPLv3.
+Please see the [LICENSE] (https://github.com/myokoym/filerarian/blob/master/LICENSE.txt) file.
 
 ## Contributing
 
