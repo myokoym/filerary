@@ -22,13 +22,13 @@ class FileraryTest < Test::Unit::TestCase
     assert_equal(default_db_dir, librarian.db_dir)
   end
 
-  class CollectTest
+  class CollectTest < self
     def test_collect
       assert_equal([__FILE__], @librarian.collect(__FILE__))
     end
   end
 
-  class SearchTest
+  class SearchTest < self
     def test_search
       @librarian.collect(__FILE__)
       assert_equal([__FILE__], @librarian.search("Librarian"))
