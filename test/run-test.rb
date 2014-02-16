@@ -11,4 +11,6 @@ test_dir = File.join(base_dir, "test")
 $LOAD_PATH.unshift(lib_dir)
 $LOAD_PATH.unshift(test_dir)
 
+require "filerary-test-utils"
+
 exit Test::Unit::AutoRunner.run(true, test_dir)
