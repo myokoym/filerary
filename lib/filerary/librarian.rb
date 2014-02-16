@@ -1,4 +1,5 @@
 require "fileutils"
+require "uri"
 require "grn_mini"
 require "chupa-text"
 gem "chupa-text-decomposer-pdf"
@@ -62,7 +63,7 @@ module Filerary
       extractor = ChupaText::Extractor.new
       extractor.apply_configuration(ChupaText::Configuration.default)
 
-      extractor.extract(path) do |text_data|
+      extractor.extract(URI.encode(path)) do |text_data|
         text = text_data.body
       end
 
