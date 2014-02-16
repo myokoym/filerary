@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
+
 require "filerary"
 require "fileutils"
 
 class FileraryTest < Test::Unit::TestCase
   def setup
     @test_dir = File.expand_path(File.dirname(__FILE__))
+    @test_fixtures_dir = File.join(@test_dir, "fixtures")
     @test_tmp_dir = File.join(@test_dir, "tmp")
     FileUtils.mkdir_p(@test_tmp_dir)
     @librarian = Filerary::Librarian.new(@test_tmp_dir)
@@ -28,20 +31,28 @@ class FileraryTest < Test::Unit::TestCase
     def test_argument_is_array
       assert_equal([__FILE__], @librarian.collect([__FILE__]))
     end
+
+    def test_flle_type_is_pdf
+      path = File.join(@test_fixtures_dir, "test-pdf.pdf")
+      assert_equal([path], @librarian.collect(path))
+    end
   end
 
   class SearchTest < self
-    def setup
-      super
-      @librarian.collect(__FILE__)
-    end
-
     def test_found
+      @librarian.collect(__FILE__)
       assert_equal([__FILE__], @librarian.search("Librarian"))
     end
 
     def test_not_found
+      @librarian.collect(__FILE__)
       assert_equal([], @librarian.search("AAA" * 5))
+    end
+
+    def test_file_type_is_pdf
+      path = File.join(@test_fixtures_dir, "test-pdf.pdf")
+      @librarian.collect(path)
+      assert_equal([path], @librarian.search("秋"))
     end
   end
 
