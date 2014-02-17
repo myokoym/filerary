@@ -10,7 +10,7 @@ module URI
   class Generic
     alias :__path__ :path
     def path
-      URI.decode(__path__)
+      URI.decode_www_form_component(__path__, Encoding.find("locale"))
     end
   end
 end
@@ -50,7 +50,7 @@ module Filerary
         record.content =~ word
       end
 
-      result.collect {|record| record._key }
+      result.collect {|record| record._key.force_encoding(Encoding.find("locale")) }
     end
 
     def cleanup
@@ -75,7 +75,7 @@ module Filerary
 
       begin
         # TODO: I'll send pull request to ChupaText.
-        extractor.extract(URI.encode(path)) do |text_data|
+        extractor.extract(URI.encode_www_form_component(path)) do |text_data|
           text = text_data.body
         end
       rescue URI::InvalidURIError
