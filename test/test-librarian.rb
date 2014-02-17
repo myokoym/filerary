@@ -34,6 +34,11 @@ class FileraryTest < Test::Unit::TestCase
       assert_equal([__FILE__], @librarian.collect([__FILE__]))
     end
 
+    def test_multibyte_file_path
+      path = File.join(@test_fixtures_dir, "マルチバイト.txt")
+      assert_equal([path], @librarian.collect(path))
+    end
+
     def test_flle_type_is_pdf
       path = File.join(@test_fixtures_dir, "test-pdf.pdf")
       assert_equal([path], @librarian.collect(path))
