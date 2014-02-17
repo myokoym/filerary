@@ -68,27 +68,27 @@ class FileraryTest < Test::Unit::TestCase
     end
 
     class FileTypeTest < self
-    def test_file_type_is_pdf
-      path = File.join(@test_fixtures_dir, "test-pdf.pdf")
-      @librarian.collect(path)
-      assert_equal([path], @librarian.search("秋"))
-      assert_equal([], @librarian.search("冬"))
-    end
+      def test_file_type_is_pdf
+        path = File.join(@test_fixtures_dir, "test-pdf.pdf")
+        @librarian.collect(path)
+        assert_equal([path], @librarian.search("秋"))
+        assert_equal([], @librarian.search("冬"))
+      end
 
-    def test_file_type_is_xls
-      path = File.join(@test_fixtures_dir, "test-excel.xls")
-      @librarian.collect(path)
-      assert_equal([path], @librarian.search("Excel"))
-    end
+      def test_file_type_is_xls
+        path = File.join(@test_fixtures_dir, "test-excel.xls")
+        @librarian.collect(path)
+        assert_equal([path], @librarian.search("Excel"))
+      end
 
-    def test_file_type_is_xls_of_multibyte
-      # TODO: I want to detective.
-      omit_on_travis_ci
-      path = File.join(@test_fixtures_dir, "test-excel.xls")
-      @librarian.collect(path)
-      assert_equal([path], @librarian.search("表計算ソフト"))
-      assert_equal([], @librarian.search("文書作成ソフト"))
-    end
+      def test_file_type_is_xls_of_multibyte
+        # TODO: I want to detective.
+        omit_on_travis_ci
+        path = File.join(@test_fixtures_dir, "test-excel.xls")
+        @librarian.collect(path)
+        assert_equal([path], @librarian.search("表計算ソフト"))
+        assert_equal([], @librarian.search("文書作成ソフト"))
+      end
     end
   end
 
