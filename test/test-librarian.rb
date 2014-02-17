@@ -27,29 +27,29 @@ class FileraryTest < Test::Unit::TestCase
 
   class CollectTest < self
     class ArgumentTest < self
-      def test_argument_is_string
+      def test_string
         assert_equal([__FILE__], @librarian.collect(__FILE__))
       end
 
-      def test_argument_is_array
+      def test_array
         assert_equal([__FILE__], @librarian.collect([__FILE__]))
       end
     end
 
     class FilePathTest < self
-      def test_multibyte_file_path
+      def test_multibyte
         path = File.join(@test_fixtures_dir, "マルチバイト.txt")
         assert_equal([path], @librarian.collect(path))
       end
     end
 
     class FileTypeTest < self
-      def test_flle_type_is_pdf
+      def test_pdf
         path = File.join(@test_fixtures_dir, "test-pdf.pdf")
         assert_equal([path], @librarian.collect(path))
       end
 
-      def test_flle_type_is_xls
+      def test_xls
         path = File.join(@test_fixtures_dir, "test-excel.xls")
         assert_equal([path], @librarian.collect(path))
       end
