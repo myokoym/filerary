@@ -13,6 +13,11 @@ module URI
       URI.decode_www_form_component(__path__, Encoding.find("locale"))
     end
   end
+
+  def self.parse(uri)
+    uri = URI.encode_www_form_component(uri)
+    DEFAULT_PARSER.parse(uri)
+  end
 end
 
 module Filerary
@@ -75,14 +80,9 @@ module Filerary
       extractor = ChupaText::Extractor.new
       extractor.apply_configuration(ChupaText::Configuration.default)
 
-      begin
-        # TODO: I'll send pull request to ChupaText.
-        extractor.extract(URI.encode_www_form_component(path)) do |text_data|
+        extractor.extract(path) do |text_data|
           text = text_data.body
         end
-      rescue URI::InvalidURIError
-        return path
-      end
 
       return path unless text
 
