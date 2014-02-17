@@ -50,7 +50,9 @@ module Filerary
         record.content =~ word
       end
 
-      result.collect {|record| record._key.force_encoding(Encoding.find("locale")) }
+      result.collect do |record|
+        record._key.force_encoding(Encoding.find("locale"))
+      end
     end
 
     def cleanup
