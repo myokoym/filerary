@@ -80,9 +80,9 @@ module Filerary
       extractor = ChupaText::Extractor.new
       extractor.apply_configuration(ChupaText::Configuration.default)
 
-        extractor.extract(path) do |text_data|
-          text = text_data.body
-        end
+      extractor.extract(path) do |text_data|
+        text = text_data.body
+      end
 
       return path unless text
 
