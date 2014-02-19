@@ -2,6 +2,7 @@
 
 require "filerary"
 require "fileutils"
+require "tmpdir"
 
 class FileraryTest < Test::Unit::TestCase
   include FileraryTestUtils
@@ -38,8 +39,11 @@ class FileraryTest < Test::Unit::TestCase
 
     class FilePathTest < self
       def test_multibyte
-        path = File.join(@test_fixtures_dir, "マルチバイト.txt")
+        Dir.mktmpdir do |tmpdir|
+          path = File.join(tmpdir, "マルチバイト.txt")
+          FileUtils.touch(path)
         assert_equal([path], @librarian.collect(path))
+        end
       end
     end
 
