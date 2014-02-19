@@ -42,7 +42,7 @@ class FileraryTest < Test::Unit::TestCase
         Dir.mktmpdir do |tmpdir|
           path = File.join(tmpdir, "マルチバイト.txt")
           FileUtils.touch(path)
-        assert_equal([path], @librarian.collect(path))
+          assert_equal([path], @librarian.collect(path))
         end
       end
     end
