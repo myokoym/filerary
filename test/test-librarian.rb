@@ -26,8 +26,8 @@ class FileraryTest < Test::Unit::TestCase
     assert_equal(default_db_dir, librarian.db_dir)
   end
 
-  class CollectTest < self
-    class ArgumentTest < self
+  sub_test_case("collect") do
+    sub_test_case("argument") do
       def test_string
         assert_equal([__FILE__], @librarian.collect(__FILE__))
       end
@@ -37,7 +37,7 @@ class FileraryTest < Test::Unit::TestCase
       end
     end
 
-    class FilePathTest < self
+    sub_test_case("file path") do
       def test_multibyte
         Dir.mktmpdir do |tmpdir|
           path = File.join(tmpdir, "マルチバイト.txt")
@@ -47,7 +47,7 @@ class FileraryTest < Test::Unit::TestCase
       end
     end
 
-    class FileTypeTest < self
+    sub_test_case("file type") do
       def test_pdf
         path = File.join(@test_fixtures_dir, "test-pdf.pdf")
         assert_equal([path], @librarian.collect(path))
@@ -60,7 +60,7 @@ class FileraryTest < Test::Unit::TestCase
     end
   end
 
-  class SearchTest < self
+  sub_test_case("search") do
     def test_found
       @librarian.collect(__FILE__)
       assert_equal([__FILE__], @librarian.search("Librarian"))
@@ -96,7 +96,7 @@ class FileraryTest < Test::Unit::TestCase
     end
   end
 
-  class CleanupTest < self
+  sub_test_case("cleanup") do
     def setup
       super
       @temp_file = File.join(@test_tmp_dir, "cleanup.txt")
