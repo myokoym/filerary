@@ -109,6 +109,7 @@ class FileraryTest < Test::Unit::TestCase
   end
 
   sub_test_case("cleanup") do
+    sub_test_case("ascii file name") do
     def setup
       super
       @temp_file = File.join(@test_tmp_dir, "cleanup.txt")
@@ -132,6 +133,7 @@ class FileraryTest < Test::Unit::TestCase
       assert_equal([@temp_file], @librarian.search("Librarian"))
       @librarian.cleanup
       assert_equal([@temp_file], @librarian.search("Librarian"))
+    end
     end
   end
 end
