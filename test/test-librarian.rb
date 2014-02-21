@@ -42,7 +42,8 @@ class FileraryTest < Test::Unit::TestCase
         Dir.mktmpdir do |tmpdir|
           path = File.join(tmpdir, "マルチバイト.txt")
           FileUtils.touch(path)
-          assert_equal([path], @librarian.collect(path))
+          @librarian.collect(path)
+          assert_equal(1, @librarian.size)
         end
       end
     end
@@ -50,12 +51,14 @@ class FileraryTest < Test::Unit::TestCase
     sub_test_case("file type") do
       def test_pdf
         path = File.join(@test_fixtures_dir, "test-pdf.pdf")
-        assert_equal([path], @librarian.collect(path))
+        @librarian.collect(path)
+        assert_equal(1, @librarian.size)
       end
 
       def test_xls
         path = File.join(@test_fixtures_dir, "test-excel.xls")
-        assert_equal([path], @librarian.collect(path))
+        @librarian.collect(path)
+        assert_equal(1, @librarian.size)
       end
     end
 
@@ -64,7 +67,7 @@ class FileraryTest < Test::Unit::TestCase
         path = "empty"
         stub(@librarian).read_content(path) { nil }
         @librarian.collect(path)
-        assert_equal(0, @librarian.instance_variable_get(:@files).size)
+        assert_equal(0, @librarian.size)
       end
     end
   end

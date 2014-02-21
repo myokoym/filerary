@@ -33,6 +33,10 @@ module Filerary
       @files = GrnMini::Hash.new("Files")
     end
 
+    def size
+      @files.size
+    end
+
     def collect(paths)
       paths = [paths] if paths.is_a?(String)
 
