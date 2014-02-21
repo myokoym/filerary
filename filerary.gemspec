@@ -13,10 +13,6 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/myokoym/filerary"
   spec.license       = "LGPLv2.1 or later"
 
-  spec.post_install_message = <<-END_OF_MESSAGE
-Filerary will use '#{File.join(File.expand_path("~"), ".filerary")}' for data storage. Thanks!
-  END_OF_MESSAGE
-
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) {|f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
