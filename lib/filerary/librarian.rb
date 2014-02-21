@@ -84,6 +84,11 @@ module Filerary
       @files.delete(path)
     end
 
+    def destroy
+      FileUtils.rm(Dir.glob("#{@db_path}*"))
+      FileUtils.rmdir(@db_dir)
+    end
+
     private
     def default_base_dir
       File.join(File.expand_path("~"), ".filerary")

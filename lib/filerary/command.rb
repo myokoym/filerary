@@ -33,5 +33,10 @@ module Filerary
     def remove(path)
       Filerary::Librarian.new.remove(path)
     end
+
+    desc "destroy", "Delete the database and the collection"
+    def destroy
+      Filerary::Librarian.new.destroy
+    end
   end
 end

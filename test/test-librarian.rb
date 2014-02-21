@@ -189,4 +189,22 @@ class FileraryTest < Test::Unit::TestCase
       assert_equal(0, @librarian.size)
     end
   end
+
+  sub_test_case("destroy") do
+    def setup
+      super
+      @test_tmp_db_dir = File.join(@test_tmp_dir, "db")
+    end
+
+    def test_not_record
+      @librarian.destroy
+      assert_false(File.exist?(@test_tmp_db_dir))
+    end
+
+    def test_have_a_record
+      @librarian.collect(__FILE__)
+      @librarian.destroy
+      assert_false(File.exist?(@test_tmp_db_dir))
+    end
+  end
 end

@@ -67,6 +67,12 @@ $ filerary cleanup
 $ filerary remove PATH
 ```
 
+### Delete the database and the collection
+
+```bash
+$ filerary destroy
+```
+
 ## Authors
 
 * Masafumi Yokoyama `<myokoym@gmail.com>`
