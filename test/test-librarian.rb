@@ -58,6 +58,15 @@ class FileraryTest < Test::Unit::TestCase
         assert_equal([path], @librarian.collect(path))
       end
     end
+
+    sub_test_case("file content") do
+      def test_empty
+        path = "empty"
+        stub(@librarian).read_content(path) { nil }
+        @librarian.collect(path)
+        assert_equal(0, @librarian.instance_variable_get(:@files).size)
+      end
+    end
   end
 
   sub_test_case("search") do

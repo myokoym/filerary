@@ -43,8 +43,11 @@ module Filerary
         next if /\/\.git\// =~ path
         next if @files[path] && @files[path].updated_at > File.mtime(path)
 
+        content = read_content(path)
+        next unless content
+
         @files[path] = {
-          :content    => read_content(path),
+          :content    => content,
           :updated_at => Time.now,
         }
       end
@@ -84,7 +87,7 @@ module Filerary
         text = text_data.body
       end
 
-      return path unless text
+      return unless text
 
       # TODO: I want to specify encoding in ChupaText side.
       text.force_encoding(Encoding.default_external)
