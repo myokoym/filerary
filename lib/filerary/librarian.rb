@@ -80,6 +80,10 @@ module Filerary
       end
     end
 
+    def remove(path)
+      @files.delete(path)
+    end
+
     private
     def default_base_dir
       File.join(File.expand_path("~"), ".filerary")

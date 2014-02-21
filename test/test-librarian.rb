@@ -180,4 +180,13 @@ class FileraryTest < Test::Unit::TestCase
       end
     end
   end
+
+  sub_test_case("remove") do
+    def test_one_file
+      @librarian.collect(__FILE__)
+      assert_equal(1, @librarian.size)
+      @librarian.remove(__FILE__)
+      assert_equal(0, @librarian.size)
+    end
+  end
 end
