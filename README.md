@@ -64,7 +64,7 @@ $ filerary cleanup
 ### Remove a file in the collection
 
 ```bash
-$ filerary remove /home/user/foo.txt
+$ filerary remove PATH
 ```
 
 ## Authors

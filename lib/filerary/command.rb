@@ -29,7 +29,7 @@ module Filerary
       Filerary::Librarian.new.cleanup
     end
 
-    desc "remove", "Remove a file in the collection"
+    desc "remove PATH", "Remove a file in the collection"
     def remove(path)
       Filerary::Librarian.new.remove(path)
     end
