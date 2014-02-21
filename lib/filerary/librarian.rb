@@ -37,6 +37,12 @@ module Filerary
       @files.size
     end
 
+    def list
+      @files.collect do |record|
+        record._key
+      end
+    end
+
     def collect(paths)
       paths = [paths] if paths.is_a?(String)
 

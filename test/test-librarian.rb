@@ -26,6 +26,23 @@ class FileraryTest < Test::Unit::TestCase
     assert_equal(default_db_dir, librarian.db_dir)
   end
 
+  sub_test_case("list") do
+    def test_empty
+      assert_equal([], @librarian.list)
+    end
+
+    def test_one_file
+      @librarian.collect(__FILE__)
+      assert_equal([__FILE__], @librarian.list)
+    end
+
+    def test_multiple_files
+      files = Dir.glob("#{@test_dir}/*.rb").take(2)
+      @librarian.collect(files)
+      assert_equal(files, @librarian.list)
+    end
+  end
+
   sub_test_case("collect") do
     sub_test_case("argument") do
       def test_string

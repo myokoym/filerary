@@ -9,6 +9,11 @@ module Filerary
       puts VERSION
     end
 
+    desc "list", "List filenames in the collection"
+    def list
+      puts Filerary::Librarian.new.list
+    end
+
     desc "collect FILE...", "Collect files (takes time)"
     def collect(*files)
       Filerary::Librarian.new.collect(files)
