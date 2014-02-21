@@ -135,5 +135,32 @@ class FileraryTest < Test::Unit::TestCase
         assert_equal([@temp_file], @librarian.search("Librarian"))
       end
     end
+
+    sub_test_case("multibyte file name") do
+      def setup
+        super
+        @temp_file = File.join(@test_tmp_dir, "マルチバイト.txt")
+        FileUtils.cp(__FILE__, @temp_file)
+        @librarian.collect(@temp_file)
+      end
+
+      def teardown
+        super
+        FileUtils.rm_f(@temp_file)
+      end
+
+      def test_removed
+        FileUtils.rm(@temp_file)
+        assert_equal([@temp_file], @librarian.search("Librarian"))
+        @librarian.cleanup
+        assert_equal([], @librarian.search("Librarian"))
+      end
+
+      def test_not_removed
+        assert_equal([@temp_file], @librarian.search("Librarian"))
+        @librarian.cleanup
+        assert_equal([@temp_file], @librarian.search("Librarian"))
+      end
+    end
   end
 end
