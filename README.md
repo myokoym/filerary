@@ -44,6 +44,12 @@ $ gem install filerary
 $ filerary collect FILE...
 ```
 
+### List filenames in the collection
+
+```bash
+$ filerary list
+```
+
 ### Search for files in the collection (very fast!)
 
 ```bash
@@ -54,6 +60,11 @@ $ filerary search WORD
 
 ```bash
 $ filerary cleanup
+```
+### Remove a file in the collection
+
+```bash
+$ filerary remove /home/user/foo.txt
 ```
 
 ## Authors
