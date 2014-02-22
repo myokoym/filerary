@@ -29,7 +29,7 @@ module Filerary
       begin
         puts Filerary::Librarian.new.show(path)
       rescue ArgumentError => e
-        puts "#{e.class}: #{e.message}: #{path}"
+        STDERR.puts "#{e.class}: #{e.message}: #{path}"
       end
     end
 
@@ -43,7 +43,7 @@ module Filerary
       begin
         Filerary::Librarian.new.remove(path)
       rescue ArgumentError => e
-        puts "#{e.class}: #{e.message}: #{path}"
+        STDERR.puts "#{e.class}: #{e.message}: #{path}"
       end
     end
 
