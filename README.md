@@ -56,6 +56,12 @@ $ filerary list
 $ filerary search WORD
 ```
 
+### Show a file content
+
+```bash
+$ filerary show PATH
+```
+
 ### Remove deleted files in the collection
 
 ```bash
