@@ -5,7 +5,7 @@ require "chupa-text"
 gem "chupa-text-decomposer-pdf"
 gem "chupa-text-decomposer-libreoffice"
 
-# TODO: I'll send pull request to ChupaText.
+# TODO: workaround for multibyte filenames for chupa-text gem.
 module URI
   class Generic
     alias :__path__ :path
@@ -108,7 +108,7 @@ module Filerary
 
       return unless text
 
-      # TODO: I want to specify encoding in ChupaText side.
+      # TODO: workaround for multibyte text for chupa-text gem.
       text.force_encoding(Encoding.default_external)
       text.force_encoding("UTF-8") unless text.valid_encoding?
 
