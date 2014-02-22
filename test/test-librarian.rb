@@ -125,6 +125,21 @@ class FileraryTest < Test::Unit::TestCase
     end
   end
 
+  sub_test_case("show") do
+    def test_found
+      @librarian.collect(__FILE__)
+      assert_equal(File.read(__FILE__), @librarian.show(__FILE__))
+    end
+
+    def test_not_found
+      path = "XXX.txt"
+      @librarian.collect(path)
+      assert_raise(ArgumentError) do
+        @librarian.show(path)
+      end
+    end
+  end
+
   sub_test_case("cleanup") do
     sub_test_case("ascii file name") do
       def setup

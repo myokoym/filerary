@@ -24,6 +24,15 @@ module Filerary
       puts Filerary::Librarian.new.search(word)
     end
 
+    desc "show PATH", "Show a file content"
+    def show(path)
+      begin
+        puts Filerary::Librarian.new.show(path)
+      rescue ArgumentError => e
+        puts "#{e.class}: #{e.message}: #{path}"
+      end
+    end
+
     desc "cleanup", "Remove deleted files in the collection"
     def cleanup
       Filerary::Librarian.new.cleanup

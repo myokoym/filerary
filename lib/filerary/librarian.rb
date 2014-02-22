@@ -73,6 +73,12 @@ module Filerary
       end
     end
 
+    def show(path)
+      file = @files[path]
+      raise ArgumentError, "file not found" unless file
+      file.content
+    end
+
     def cleanup
       @files.grn.records.each do |record|
         path = record._key
