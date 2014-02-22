@@ -79,6 +79,10 @@ module Filerary
       file.content
     end
 
+    def update
+      collect(list)
+    end
+
     def cleanup
       @files.grn.records.each do |record|
         path = record._key

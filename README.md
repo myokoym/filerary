@@ -62,6 +62,12 @@ $ filerary search WORD
 $ filerary show PATH
 ```
 
+### Update the collection
+
+```bash
+$ filerary update
+```
+
 ### Remove deleted files in the collection
 
 ```bash

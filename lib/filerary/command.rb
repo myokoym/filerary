@@ -33,6 +33,11 @@ module Filerary
       end
     end
 
+    desc "update", "Update the collection"
+    def update
+      Filerary::Librarian.new.update
+    end
+
     desc "cleanup", "Remove deleted files in the collection"
     def cleanup
       Filerary::Librarian.new.cleanup

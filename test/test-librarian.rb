@@ -140,6 +140,34 @@ class FileraryTest < Test::Unit::TestCase
     end
   end
 
+  sub_test_case("update") do
+    def setup
+      super
+      @return_valie_from_collect = "return value from collect"
+    end
+
+    def test_empty
+      files = []
+      @librarian.collect(files)
+      mock(@librarian).collect(files) { @return_valie_from_collect }
+      assert_equal(@return_valie_from_collect, @librarian.update)
+    end
+
+    def test_one_file
+      files = [__FILE__]
+      @librarian.collect(files)
+      mock(@librarian).collect(files) { @return_valie_from_collect }
+      assert_equal(@return_valie_from_collect, @librarian.update)
+    end
+
+    def test_multiple_files
+      files = Dir.glob("#{@test_dir}/*.rb").take(2)
+      @librarian.collect(files)
+      mock(@librarian).collect(files) { @return_valie_from_collect }
+      assert_equal(@return_valie_from_collect, @librarian.update)
+    end
+  end
+
   sub_test_case("cleanup") do
     sub_test_case("ascii file name") do
       def setup
