@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.requirements << "LibreOffice"
 
-  spec.add_runtime_dependency("grn_mini")
+  spec.add_runtime_dependency("grn_mini", ">= 0.4.0")
   spec.add_runtime_dependency("chupa-text")
   spec.add_runtime_dependency("chupa-text-decomposer-pdf")
   spec.add_runtime_dependency("chupa-text-decomposer-libreoffice")
