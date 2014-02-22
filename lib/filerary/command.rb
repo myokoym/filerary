@@ -40,7 +40,11 @@ module Filerary
 
     desc "remove PATH", "Remove a file in the collection"
     def remove(path)
+      begin
       Filerary::Librarian.new.remove(path)
+      rescue ArgumentError => e
+        puts "#{e.class}: #{e.message}: #{path}"
+      end
     end
 
     desc "destroy", "Delete the database and the collection"

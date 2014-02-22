@@ -203,6 +203,13 @@ class FileraryTest < Test::Unit::TestCase
       @librarian.remove(__FILE__)
       assert_equal(0, @librarian.size)
     end
+
+    def test_not_found
+      not_found_path = "XXX.txt"
+      assert_raise(ArgumentError) do
+        @librarian.show(not_found_path)
+      end
+    end
   end
 
   sub_test_case("destroy") do

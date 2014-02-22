@@ -87,6 +87,7 @@ module Filerary
     end
 
     def remove(path)
+      raise ArgumentError, "file not found" unless @files[path]
       @files.delete(path)
     end
 
