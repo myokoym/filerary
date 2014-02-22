@@ -205,9 +205,9 @@ class FileraryTest < Test::Unit::TestCase
     end
 
     def test_not_found
-      not_found_path = "XXX.txt"
+      not_registerd_path = "XXX.txt"
       assert_raise(ArgumentError) do
-        @librarian.show(not_found_path)
+        @librarian.show(not_registerd_path)
       end
     end
   end
