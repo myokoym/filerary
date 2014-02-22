@@ -61,6 +61,7 @@ $ filerary search WORD
 ```bash
 $ filerary cleanup
 ```
+
 ### Remove a file in the collection
 
 ```bash
